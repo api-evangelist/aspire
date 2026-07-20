@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.aspireapp.com/authentication
+docs: https://docs.api.aspireapp.com/authentication
+api: Aspire API
+summary:
+  types: [oauth2, http]
+  token_type: bearer
+  header: Authorization
+  header_format: 'Authorization: Bearer {access_token}'
+  oauth2_flows: [clientCredentials, authorizationCode]
+  access_token_ttl_seconds: 900
+notes: >-
+  Every Aspire API request carries an access token as an HTTP bearer token in
+  the Authorization header. Access tokens are short-lived (900 seconds) with no
+  refresh token on the client-credentials flow; request a new token on expiry.
+  An expired or invalid token returns 401 Unauthorized.
+schemes:
+- name: ClientCredentials
+  type: oauth2
+  flow: clientCredentials
+  description: >-
+    Server-to-server access to your own Aspire account. Obtain a Client ID and
+    Client Secret from the Aspire dashboard, then exchange them for an access
+    token via POST https://api.aspireapp.com/public/v1/login. Tokens expire in
+    900 seconds; no refresh token is issued.
+  tokenUrl: https://api.aspireapp.com/public/v1/login
+  source: https://docs.api.aspireapp.com/authentication
+- name: OAuth2AuthorizationCode
+  type: oauth2
+  flow: authorizationCode
+  pkce: true
+  description: >-
+    Third-party apps acting on another user's Aspire data with their consent.
+    Register the app with the Aspire Account Manager to receive a Client ID and
+    Client Secret, redirect the user to the authorization URL, exchange the
+    returned authorization code for an access token plus refresh token, and use
+    the refresh token to mint fresh access tokens.
+  source: https://docs.api.aspireapp.com/authentication
+scopes_summary: >-
+  API keys operate under scopes that limit accessible endpoints (e.g. transfers,
+  quotes). FX transfers require both the transfers and quotes scopes. See
+  scopes/aspire-scopes.yml.
