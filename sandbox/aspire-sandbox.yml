@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.aspireapp.com
+api: Aspire API
+summary: >-
+  Aspire provides a sandbox testing environment for the developer API, and a
+  public staging documentation/API host. No published magic test values (test
+  cards, test IBANs, test tokens) were found in the public docs at capture time;
+  sandbox credentials are provisioned via the Aspire dashboard / onboarding.
+environments:
+- name: staging
+  docs_host: https://public-api-docs.staging.aspireapp.com
+  detail: >-
+    Public staging developer-docs host referenced from docs.api.aspireapp.com.
+    (Did not resolve on live probe at capture time.)
+- name: production
+  base_url: https://api.aspireapp.com/public/v1
+test_values:
+  published: false
+  detail: >-
+    No verbatim test card numbers, test bank accounts, or hosted test tokens are
+    published in the public docs. Do not fabricate test values.
+onboarding: https://aspireapp.com/talk-to-sales

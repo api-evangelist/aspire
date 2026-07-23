@@ -1,0 +1,65 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.aspireapp.com/glossary
+docs: https://docs.api.aspireapp.com/glossary
+api: Aspire API
+authentication:
+  style: oauth2-bearer
+  header: Authorization
+  detail: authentication/aspire-authentication.yml
+idempotency:
+  supported: true
+  header: Idempotency-Key
+  scope: All POST requests (required)
+  key_format: Client-generated unique string; v4 UUID recommended; max 255 chars.
+  retention: >-
+    Keys are stored permanently. Aspire persists the first response for a key
+    and returns 409 Conflict on any retry that reuses the same key. Never reuse
+    an idempotency key.
+  conflict_status: 409
+  source: https://docs.api.aspireapp.com/glossary
+pagination:
+  style: page-number
+  location: metadata object on list responses
+  response_fields:
+  - total
+  - per_page
+  - current_page
+  - first_page_url
+  - last_page_url
+  - next_page_url
+  - prev_page_url
+  source: https://docs.api.aspireapp.com/glossary
+request_tracing:
+  response_field: aspire-request-id
+  detail: >-
+    Every response carries a unique aspire-request-id used for support
+    traceability. Metadata also carries pagination and request-traceability
+    details.
+  source: https://docs.api.aspireapp.com/glossary
+amounts:
+  convention: minor units (integers) in the lowest denomination, e.g. 135000 = SGD 1,350.00
+  exception: card spend_limit is expressed in major units
+  currency_code: ISO 4217 three-letter (e.g. SGD)
+  country_code: ISO 3166 two-letter (e.g. SG)
+  timestamps: ISO 8601 (YYYY-MM-DDTHH:mm:ssZ)
+  source: https://docs.api.aspireapp.com/glossary
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: Version is carried in the URI path (/public/v1/...).
+error_envelope:
+  detail: >-
+    Documented status responses include 401 Unauthorized (expired/invalid
+    token) and 409 Conflict (idempotency-key reuse). See
+    errors/aspire-problem-types.yml.
+  ref: errors/aspire-problem-types.yml
+rate_limits:
+  documented: false
+  detail: No explicit rate-limit signaling published in the developer docs at capture time.
+cross_links:
+  errors: errors/aspire-problem-types.yml
+  lifecycle: lifecycle/aspire-lifecycle.yml
+  authentication: authentication/aspire-authentication.yml
+  scopes: scopes/aspire-scopes.yml
+  data_model: data-model/aspire-data-model.yml

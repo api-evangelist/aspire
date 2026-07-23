@@ -1,0 +1,23 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.aspireapp.com
+api: Aspire API
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /public/v1
+  docs: https://docs.api.aspireapp.com/authentication
+deprecation:
+  policy_url: null
+  sunset_header: null
+  detail: No public deprecation policy or RFC 8594 Sunset/Deprecation header support documented at capture time.
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: null
+  detail: >-
+    No public status page found (status.aspireapp.com did not resolve at capture
+    time). Operational/regulatory posture is published at
+    https://aspireapp.com/security-and-compliance.
+deprecated_operations: []

@@ -1,0 +1,36 @@
+# Aspire
+
+> Aspire is a Singapore-headquartered fintech offering an all-in-one finance platform for growing businesses: multi-currency business accounts, corporate cards, global payments and FX, expense and budget management, bill pay, bulk payments, invoice/AR management, yield, and global payroll. Its developer API covers payouts/transfers, FX quotes, card issuance, and bank-feed/transaction reporting. Backed by Lightspeed Venture Partners; PCI DSS v4.0.1, ISO/IEC 27001:2022, and SOC 2 Type 2 certified.
+
+## API
+
+- [Aspire API developer docs](https://docs.api.aspireapp.com): REST API at base URL https://api.aspireapp.com/public/v1
+- [Authentication](https://docs.api.aspireapp.com/authentication): OAuth 2.0 bearer tokens — client-credentials (POST /public/v1/login, 900s TTL) and authorization-code + PKCE
+- [Glossary](https://docs.api.aspireapp.com/glossary): conventions, idempotency, pagination, status enums
+- [Postman collection](https://aspireapi.postman.co/network/import?collection=28742427-8779dc4f-4c34-42e5-b43e-9ad318f7c026-2s9YXccQHr)
+
+## Use cases
+
+- [Supplier payments](https://docs.api.aspireapp.com/use-cases/supplier-payments)
+- [Card issuance (OTA)](https://docs.api.aspireapp.com/use-cases/card-ota)
+- [Payroll automation](https://docs.api.aspireapp.com/use-cases/payroll-automations)
+- [Accounting automation (bank feeds)](https://docs.api.aspireapp.com/use-cases/accounting-automation)
+
+## Conventions
+
+- Auth header: `Authorization: Bearer {access_token}`
+- Idempotency: `Idempotency-Key` header required on all POST requests (v4 UUID, max 255 chars); reuse returns 409
+- Pagination: metadata object with total, per_page, current_page, and page URL fields
+- Request tracing: `aspire-request-id` on every response
+- Amounts: minor units (integers); card spend_limit in major units
+- Scopes: transfers, quotes (FX transfers require both)
+
+## Company
+
+- [Website](https://aspireapp.com)
+- [Pricing](https://aspireapp.com/pricing)
+- [Blog](https://aspireapp.com/blog)
+- [Help center](https://help.aspireapp.com/en/)
+- [Security & compliance](https://aspireapp.com/security-and-compliance)
+- [Terms of service](https://aspireapp.com/tnc/master-service-agreement)
+- [Privacy policy](https://aspireapp.com/tnc/privacy-policy)

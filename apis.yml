@@ -1,8 +1,17 @@
 aid: aspire
 name: Aspire
-description: Aspire is a company surfaced as a portfolio company of lightspeed-venture-partners and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Aspire is a Singapore-headquartered fintech offering an all-in-one finance
+  platform for growing businesses operating globally. Its products include
+  multi-currency business accounts, corporate cards, global payments and FX,
+  expense and budget management, bill pay, bulk payments, invoice and
+  accounts-receivable management, yield on idle balances, and global payroll.
+  Aspire also exposes a developer API (api.aspireapp.com/public/v1) covering
+  payouts/transfers, card issuance, and bank-feed/transaction reporting, secured
+  with OAuth 2.0 bearer tokens (client-credentials and authorization-code + PKCE
+  flows), idempotency keys, and webhooks. The company serves 50,000+ businesses,
+  is backed by Lightspeed Venture Partners, and is PCI DSS v4.0.1, ISO/IEC
+  27001:2022, and SOC 2 Type 2 certified.
 url: https://raw.githubusercontent.com/api-evangelist/aspire/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,14 +19,109 @@ x-backed-by:
 - lightspeed-venture-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://aspireapp.com/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Fintech
+- Business Banking
+- Payments
+- Payouts
+- Card Issuance
+- Foreign Exchange
+- Expense Management
+- Financial Services
+- Singapore
+apis:
+- name: Aspire API
+  description: >-
+    Aspire's public REST API for business finance automation: payout/transfer
+    operations across 30+ currencies (local and SWIFT), FX quotes, virtual card
+    issuance and controls, and bank-feed/transaction reporting. Authenticated
+    with OAuth 2.0 bearer tokens; POST requests require an Idempotency-Key
+    header; list endpoints are paginated; webhooks deliver transfer-status
+    updates.
+  humanURL: https://docs.api.aspireapp.com
+  baseURL: https://api.aspireapp.com/public/v1
+  properties:
+  - type: Documentation
+    url: https://docs.api.aspireapp.com
+  - type: Authentication
+    url: https://docs.api.aspireapp.com/authentication
+  - type: Authentication
+    url: authentication/aspire-authentication.yml
+  - type: OAuthScopes
+    url: scopes/aspire-scopes.yml
+  - type: Conventions
+    url: conventions/aspire-conventions.yml
+  - type: Idempotency
+    url: conventions/aspire-conventions.yml
+  - type: ErrorCatalog
+    url: errors/aspire-problem-types.yml
+  - type: Webhooks
+    url: asyncapi/aspire-webhooks.yml
+  - type: Sandbox
+    url: sandbox/aspire-sandbox.yml
+  - type: DataModel
+    url: data-model/aspire-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/aspire-lifecycle.yml
+  - type: Conformance
+    url: conformance/aspire-conformance.yml
+  - type: Glossary
+    url: https://docs.api.aspireapp.com/glossary
+common:
+- type: DomainSecurity
+  url: security/aspire-domain-security.yml
+- type: LLMsTxt
+  url: llms/aspire-llms.txt
+- type: Website
+  url: https://aspireapp.com
+- type: DeveloperPortal
+  url: https://docs.api.aspireapp.com
+- type: Documentation
+  url: https://docs.api.aspireapp.com
+- type: GettingStarted
+  url: https://docs.api.aspireapp.com/authentication
+- type: Blog
+  url: https://aspireapp.com/blog
+- type: Support
+  url: https://help.aspireapp.com/en/
+- type: Pricing
+  url: https://aspireapp.com/pricing
+- type: SignUp
+  url: https://app.aspireapp.com/login
+- type: TermsOfService
+  url: https://aspireapp.com/tnc/master-service-agreement
+- type: PrivacyPolicy
+  url: https://aspireapp.com/tnc/privacy-policy
+- type: Compliance
+  url: https://aspireapp.com/security-and-compliance
+- type: Security
+  url: https://aspireapp.com/security-and-compliance
+- type: Postman
+  url: https://aspireapi.postman.co/network/import?collection=28742427-8779dc4f-4c34-42e5-b43e-9ad318f7c026-2s9YXccQHr
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

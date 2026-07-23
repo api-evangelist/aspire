@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://aspireapp.com/security-and-compliance
+docs: https://aspireapp.com/security-and-compliance
+api: Aspire API
+standards:
+- id: pci-dss
+  version: 4.0.1
+  conforms: true
+  evidence: >-
+    Aspire is PCI DSS v4.0.1 certified for cardholder-data protection
+    (security-and-compliance page).
+- id: iso-27001
+  version: '2022'
+  conforms: true
+  evidence: ISO/IEC 27001:2022 Information Security Management System certification.
+- id: soc2-type2
+  conforms: true
+  evidence: SOC 2 Type 2 audited controls across Security, Availability, and Confidentiality.
+- id: oauth2
+  conforms: true
+  evidence: >-
+    API uses OAuth 2.0 bearer tokens with client-credentials and
+    authorization-code + PKCE flows (docs.api.aspireapp.com/authentication).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json error envelope published at capture time.
+compliance_program:
+  certifications: [PCI DSS v4.0.1, ISO/IEC 27001:2022, SOC 2 Type 2]
+  attestations: >-
+    Executive summaries / attestation letters (ISO certificate, PCI certificate,
+    SOC 2 audit report summary) available upon NDA request via
+    security@aspireapp.com.
+  regulatory: >-
+    Operating under temporary MAS licensing exemptions in Singapore for Account
+    Issuance, Domestic Money Transfer, E-money Issuance, and specified
+    cross-border money transfer services.
+  url: https://aspireapp.com/security-and-compliance

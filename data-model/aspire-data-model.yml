@@ -1,0 +1,85 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.aspireapp.com/glossary
+docs: https://docs.api.aspireapp.com/glossary
+api: Aspire API
+notes: >-
+  Entity model derived from the Aspire API glossary (no OpenAPI published).
+  Amounts are integers in minor units except card spend_limit (major units).
+entities:
+- name: Account
+  description: A business account holding funds in an account currency.
+  fields:
+  - account_type (e.g. debit)
+  - available_balance
+  - debit_details
+- name: Transfer
+  description: A single payout/transfer to a beneficiary.
+  fields:
+  - beneficiary_id
+  - source_amount
+  - payment_amount
+  - quote_id
+  - clearing_system (REGULAR | FAST | PAYNOW)
+  - payment_method (LOCAL | SWIFT)
+  - funding_type
+  - reference
+  - approval
+  - transfer_status
+  - transaction_ref_code
+- name: BulkTransfer
+  description: A batch of transfers processed together.
+  fields:
+  - status (drafted | processing | pending_approval | posted | settled | partially_posted | partially_settled | refunded | cancelled)
+- name: Quote
+  description: An FX quote locking an exchange rate before an FX transfer.
+  fields:
+  - quote_id
+  - source_amount
+  - payment_amount
+- name: Beneficiary
+  description: A transfer recipient, specified inline or by id.
+  fields:
+  - beneficiary_id
+- name: Transaction
+  description: A ledger entry against an account (reporting / bank-feeds API).
+  fields:
+  - type (credit | debit)
+  - amount (signed, minor units)
+  - channel (card | banktransfer)
+  - status (posted | settled | refunded | pending)
+  - ref_code
+  - reference
+- name: Card
+  description: A virtual card issued and controlled via the Card Issuance API.
+  fields:
+  - spend_limit (major units)
+relationships:
+- from: Transfer
+  to: Beneficiary
+  type: belongs_to
+  via: beneficiary_id
+- from: Transfer
+  to: Quote
+  type: belongs_to
+  via: quote_id
+- from: Transfer
+  to: Account
+  type: belongs_to
+  via: account
+- from: Transaction
+  to: Account
+  type: belongs_to
+  via: account
+- from: Transaction
+  to: Card
+  type: belongs_to
+  via: channel=card
+- from: BulkTransfer
+  to: Transfer
+  type: has_many
+  via: transfers
+- from: Card
+  to: Account
+  type: belongs_to
+  via: account

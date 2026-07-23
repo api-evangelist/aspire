@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.aspireapp.com/glossary
+docs: https://docs.api.aspireapp.com/authentication
+api: Aspire API
+format: http-status
+notes: >-
+  Aspire's developer docs do not publish an RFC 9457 problem+json error registry
+  at capture time; these entries are the HTTP status responses documented in the
+  authentication and glossary references. Status enums for transfers and
+  transactions are captured in data-model/aspire-data-model.yml.
+problems:
+- status: 401
+  title: Unauthorized
+  detail: >-
+    The access token is expired or invalid. Obtain a fresh token
+    (client-credentials) or refresh it (OAuth authorization-code) and retry.
+  source: https://docs.api.aspireapp.com/authentication
+- status: 409
+  title: Conflict
+  detail: >-
+    An idempotency key was reused. Aspire returns the stored first response
+    semantics and rejects reuse with 409. Generate a new Idempotency-Key per
+    distinct POST request.
+  source: https://docs.api.aspireapp.com/glossary

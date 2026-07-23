@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.aspireapp.com
+docs: https://docs.api.aspireapp.com/api
+api: Aspire API
+spec_type: Webhooks
+summary: >-
+  Aspire delivers webhook notifications for real-time updates on money-movement
+  status. No AsyncAPI document is published; this is the documented webhook
+  surface derived from the developer docs and the transfer/transaction status
+  model in the glossary. No published AsyncAPI spec exists, so no AsyncAPI
+  pointer is wired (absence is valid and not penalized).
+events:
+- name: transfer.status
+  description: >-
+    Real-time status updates for a payout/transfer as it moves through its
+    lifecycle.
+  status_values:
+  - pending_verification
+  - pending_approval
+  - pending
+  - posted
+  - settled
+  - refunded
+  - cancelled
+  - failed
+  source: https://docs.api.aspireapp.com/glossary
+- name: bulk_transfer.status
+  description: Status updates for bulk/batch transfers.
+  status_values:
+  - drafted
+  - processing
+  - pending_approval
+  - posted
+  - settled
+  - partially_posted
+  - partially_settled
+  - refunded
+  - cancelled
+  source: https://docs.api.aspireapp.com/glossary
+notes: >-
+  Event names are normalized labels for the documented transfer-status webhook
+  surface; exact webhook payload event identifiers are defined in Aspire's
+  developer docs / Postman collection.

@@ -1,0 +1,30 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.api.aspireapp.com/authentication
+docs: https://docs.api.aspireapp.com/glossary
+api: Aspire API
+notes: >-
+  Aspire API keys and OAuth tokens are granted scopes that limit which endpoints
+  a token may call. The docs enumerate transfers and quotes explicitly and note
+  that FX transfers require BOTH transfers and quotes. Additional product scopes
+  (cards, transactions/bank-feeds) are implied by the product surface but are
+  not exhaustively published; only documented scopes are recorded here.
+schemes:
+- name: OAuth2
+  source: https://docs.api.aspireapp.com/authentication
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.aspireapp.com/public/v1/login
+  - flow: authorizationCode
+    pkce: true
+scopes:
+- scope: transfers
+  description: >-
+    Create and manage payout/transfer operations. Required (together with
+    quotes) for FX transfers.
+  sources: [https://docs.api.aspireapp.com/authentication]
+- scope: quotes
+  description: >-
+    Create foreign-exchange quotes (lock an exchange rate) prior to an FX
+    transfer. Required together with transfers for FX transfers.
+  sources: [https://docs.api.aspireapp.com/authentication]
