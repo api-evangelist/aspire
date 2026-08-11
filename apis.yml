@@ -85,6 +85,8 @@ apis:
   - type: Glossary
     url: https://docs.api.aspireapp.com/glossary
 common:
+- type: MCPServer
+  url: mcp/aspire-mcp.yml
 - type: DomainSecurity
   url: security/aspire-domain-security.yml
 - type: LLMsTxt
