@@ -6,10 +6,13 @@ server:
   name: aspire
   url: null
   transport: null
-notes: >-
-  Aspire's marketing/developer navigation flags an MCP (Model Context Protocol)
-  offering as "NEW", but no hosted MCP server endpoint, transport, or tool
-  manifest is published at capture time, and there is no public OpenAPI to derive
-  a candidate tool list from. Recorded as an announcement only; no MCPServer
+notes: Aspire's marketing/developer navigation flags an MCP (Model Context Protocol) offering as "NEW",
+  but no hosted MCP server endpoint, transport, or tool manifest is published at capture time, and there
+  is no public OpenAPI to derive a candidate tool list from. Recorded as an announcement only; no MCPServer
   pointer is wired into apis.yml until a real server surface is documented.
 tools: []
+deployment:
+  mode: unclear
+  verified: searched
+  checked: '2026-08-12'
+  source: catalog MCP census
