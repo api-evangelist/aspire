@@ -59,7 +59,7 @@ tags:
 - Card Issuance
 - Foreign Exchange
 - Expense Management
-- Financial-Services
+- Financial Services
 - Singapore
 tags_raw:
 - Company
@@ -72,6 +72,7 @@ tags_raw:
 - Expense Management
 - Financial Services
 - Singapore
+- Financial-Services
 apis:
 - name: Aspire API
   description: >-
